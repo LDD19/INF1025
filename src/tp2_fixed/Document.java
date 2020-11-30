@@ -40,19 +40,24 @@ public class Document {
 		
 		iterateur.previous();
 		
+		//tant quil y a un prochain mot dans la liste
 		while(iterateur.hasNext()) {
-			if(iterateur.next().mot.equals(aAjouter)) {
+			if(iterateur.next().mot.equals(aAjouter)) {//si le mot est le meme, on incremente
 				listeMot.get(index).frequence++;
 				return;
-			} else if(listeMot.get(index).mot.compareTo(aAjouter) > 0) {
+			} else if(listeMot.get(index).mot.compareTo(aAjouter) > 0) {//si le mot est plus grand, on l'ajoute a la position
 				listeMot.add(index, new Mot(aAjouter));
 				return;
 			}
-			if(!iterateur.hasNext()) {listeMot.addLast(new Mot(aAjouter)); return;}
+			if(!iterateur.hasNext()) {//sil n'y a plus de mots, on l'ajoute a la fin
+				listeMot.addLast(new Mot(aAjouter)); 
+				return;
+				}
 			index ++;
 		}
 	}
 	
+	//methode qui sert a savoir si un mot donne est dans la liste
 	public boolean contientMot(String aTrouver) {
 		ListIterator<Mot> iterateur = listeMot.listIterator();
 		
@@ -64,7 +69,7 @@ public class Document {
 		return false;
 	}
 	
-	
+	//methode qui retourne un tableau de tous les mots d'un document
 	public String[] lireFichier(File document) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(document));
 		
