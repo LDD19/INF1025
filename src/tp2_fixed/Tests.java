@@ -9,6 +9,10 @@ public class Tests {
 		Index index = new Index();
 		
 		System.out.println(index.toString());
+		
+		IndexInverse indexInv = new IndexInverse(index);
+		
+		System.out.println(indexInv.toString());
 	}
 
 }

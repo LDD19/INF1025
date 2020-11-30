@@ -24,14 +24,10 @@ public class Index {
 	}
 	
 	public String toString() {
-		int compteur = 0; 
 		String texte = "";
-		ListIterator<Document> iterateur = index.listIterator();
 		
-		while(iterateur.hasNext()) {
-			iterateur.next();
-			texte += index.get(compteur).nomDocument + " : " + index.get(compteur).toString() + "\n\n";
-			compteur++;
+		for(int i = 0; i < index.size(); ++i) {
+			texte += index.get(i).toString() + "\n\n";
 		}
 		return texte;
 	}

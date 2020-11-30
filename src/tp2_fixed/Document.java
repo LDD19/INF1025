@@ -52,21 +52,9 @@ public class Document {
 			if(!iterateur.hasNext()) {//sil n'y a plus de mots, on l'ajoute a la fin
 				listeMot.addLast(new Mot(aAjouter)); 
 				return;
-				}
+			}
 			index ++;
 		}
-	}
-	
-	//methode qui sert a savoir si un mot donne est dans la liste
-	public boolean contientMot(String aTrouver) {
-		ListIterator<Mot> iterateur = listeMot.listIterator();
-		
-		while(iterateur.hasNext()) {
-			if(iterateur.next().mot == aTrouver) {
-				return true;
-			}
-		}
-		return false;
 	}
 	
 	//methode qui retourne un tableau de tous les mots d'un document
@@ -81,22 +69,21 @@ public class Document {
 			texteLu += ligne + " ";
 		}
 		
-		texteLu = texteLu.replaceAll("[^A-z0-9]", " ");//garder seulement les characteres qu'on veut
+		reader.close();
+		
+		texteLu = texteLu.replaceAll("[^A-z0-9]", " ");//garder seulement les caracteres qu'on veut
 		
 		return texteLu.split(" ");
 	}
 
 	
 	public String toString() {
-		int index = 0; 
-		String texte = "";
-		ListIterator<Mot> iterateur = listeMot.listIterator();
+		String texte = nomDocument + " : ";
 		
-		while(iterateur.hasNext()) {
-			iterateur.next();
-			texte += listeMot.get(index).toString() + " ";
-			index++;
+		for(int i = 0; i < listeMot.size() - 1; ++i) {
+			texte += listeMot.get(i).toString() + ", ";
 		}	
+		texte += listeMot.get(listeMot.size() - 1).toString();
 		return texte;
 	}
 }
