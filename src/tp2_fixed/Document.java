@@ -76,7 +76,9 @@ public class Document {
 		return texteLu.split(" ");
 	}
 
-	
+	public String getNomDocument() {
+		return nomDocument;
+	}
 	public String toString() {
 		String texte = nomDocument + " : ";
 		
