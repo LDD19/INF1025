@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextPane;
 
 public class WindowIndex extends JFrame {
 
@@ -31,12 +32,17 @@ public class WindowIndex extends JFrame {
 	 * Create the frame.
 	 */
 	public WindowIndex() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//change to 1024x768
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JTextPane txtpnIndexplaceholder = new JTextPane();
+		txtpnIndexplaceholder.setText("index (placeholder)");
+		contentPane.add(txtpnIndexplaceholder, BorderLayout.CENTER);
 	}
 
 }
