@@ -62,7 +62,7 @@ public class WindowIndex extends JFrame  {
 		String[] listeAAfficher = new String[index.index.size()];
 		for (int i = 0 ;i < index.index.size(); i++) {
 			listeAAfficher[i] = index.index.get(i).getNomDocument();
-			System.out.println(listeAAfficher[i] + i);
+			//System.out.println(listeAAfficher[i] + i);
 		}
 		return listeAAfficher; 
 	}
@@ -70,7 +70,7 @@ public class WindowIndex extends JFrame  {
 		String[] listeAAfficher = new String[index.index.size()];
 		for (int i = 0 ;i < index.index.size(); i++) {
 			listeAAfficher[i] = index.index.get(i).toString();
-			System.out.println(listeAAfficher[i] + i);
+			//System.out.println(listeAAfficher[i] + i);
 		}
 		return listeAAfficher; 
 	}
