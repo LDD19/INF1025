@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 
 public class WindowMain extends JFrame {
@@ -17,23 +18,11 @@ public class WindowMain extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WindowMain frame = new WindowMain();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public WindowMain() {
+	public WindowMain(Index index, IndexInverse indexInv) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 263, 80);
 		//setBounds(100, 100, 225, 80);
@@ -45,7 +34,7 @@ public class WindowMain extends JFrame {
 		JButton btnIndex = new JButton("Indexation");
 		btnIndex.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new WindowIndex().setVisible(true);
+				new WindowIndex(index, indexInv).setVisible(true);
 			}
 		});
 		btnIndex.setBounds(10, 10, 109, 20);
