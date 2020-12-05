@@ -20,6 +20,8 @@ public class Tests {
 		
 		System.out.println("Scores : \n" + liste.toString());
 		
+		System.out.println("inverted" + indexInv.indexInv.get(0).getContenuMots());
+
 	}
 
 }

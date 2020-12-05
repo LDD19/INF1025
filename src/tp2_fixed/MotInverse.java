@@ -14,6 +14,7 @@ public class MotInverse {
 		listeDoc.addFirst(new DocumentInverse(nomDocument, motTemp.frequence));
 	}
 	
+	
 	public String toString() {
 		String texte = mot + " : ";
 		
@@ -21,6 +22,13 @@ public class MotInverse {
 			texte += listeDoc.get(i).toString() + ", ";
 		}	
 		texte += listeDoc.get(listeDoc.size() - 1).toString();
+		return texte;
+	}
+	public String[] getContenuMots() {
+		String[] texte = new String[listeDoc.size()];
+		for(int i = 0; i < listeDoc.size(); ++i) {
+			texte[i]  = listeDoc.get(i).toString();
+		}	
 		return texte;
 	}
 }

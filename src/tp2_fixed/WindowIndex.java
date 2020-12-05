@@ -14,6 +14,9 @@ import javax.swing.JTextPane;
 import javax.swing.JSplitPane;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class WindowIndex extends JFrame  {
 	private JList liste, listeIndex;
@@ -24,6 +27,8 @@ public class WindowIndex extends JFrame  {
 	LinkedList<Document> nomDocument; 
 	LinkedList<Document> indexInv;
 	String[] indexes = {"hi", "hi2", "liste vide"}; 
+	private JPanel panelBtn;
+	private JButton btnInverserIndex;
 	/** nomDocument.get(1).getNomDocument().toString()
 	 * Launch the application.
 	 */
@@ -38,17 +43,20 @@ public class WindowIndex extends JFrame  {
 		setBounds(100, 100, 640, 480);
 		
 		liste = new JList(setListeTitres(index)); 
-		
 		panelListe = new JPanel();
-		panelListe.add(liste);
-		
+	
 		listeIndex = new JList(indexes);
 		panelIndex = new JPanel();
-		panelIndex.add(listeIndex);
+	
 		
 		liste.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
-				listeIndex.setListData((setListe(index, liste.getSelectedIndex())));
+				if(btnInverserIndex.getText() == "Inverser Index")
+					if(liste.getSelectedIndex() != -1)
+						listeIndex.setListData((setListe(index, liste.getSelectedIndex())));
+				if(btnInverserIndex.getText() == "Index de depart")
+					if(liste.getSelectedIndex() != -1)
+						listeIndex.setListData((setListeInv(indexInv, liste.getSelectedIndex())));
 			}
 		});
 		
@@ -57,18 +65,59 @@ public class WindowIndex extends JFrame  {
         splitPane1.setOneTouchExpandable(true);
         contentPane = getContentPane();
         contentPane.add(splitPane1);
+        
+        panelBtn = new JPanel();
+        getContentPane().add(panelBtn, BorderLayout.SOUTH);
+        
+        btnInverserIndex = new JButton("Inverser Index");
+    
+        	 btnInverserIndex.addActionListener(new ActionListener() {
+ 	        	public void actionPerformed(ActionEvent e) {
+ 	        	    if(btnInverserIndex.getText() == "Inverser Index") {
+	 	   			liste.setListData(setListeTitresInv(indexInv));
+	 	   			liste.setSelectedIndex(0);
+	 	   			listeIndex.removeAll();
+	 	   			listeIndex.setListData(indexes);
+	 	   			btnInverserIndex.setText("Index de depart");
+ 	        	    }
+ 	        	    else if(btnInverserIndex.getText() == "Index de depart") {
+	        		liste.setListData(setListeTitres(index));
+	        		liste.setSelectedIndex(0);
+	 	   			listeIndex.removeAll();
+	        		listeIndex.setListData(indexes);
+	        		btnInverserIndex.setText("Inverser Index");
+ 	               }
+ 	        	}
+ 	        });
+        
+        panelBtn.add(btnInverserIndex);
+    	panelIndex.add(listeIndex);
+    	panelListe.add(liste);
+		
 	}
 	private String[] setListeTitres(Index index){
 		String[] listeAAfficher = new String[index.index.size()];
 		for (int i = 0 ;i < index.index.size(); i++) {
-			listeAAfficher[i] = index.index.get(i).getNomDocument();
-			//System.out.println(listeAAfficher[i] + i);
+			listeAAfficher[i] = index.index.get(i).nomDocument;
 		}
 		return listeAAfficher; 
+	}
+	private String[] setListeTitresInv(IndexInverse indexInv) {
+		String[] listeAAfficher = new String[indexInv.indexInv.size()];
+		for (int i = 0 ;i < indexInv.indexInv.size(); i++) {
+			listeAAfficher[i] = indexInv.indexInv.get(i).mot;
+		}
+		return listeAAfficher;
 	}
 	private String[] setListe(Index index, int i) {
 		String[] listeAAfficher = new String[999999];
 			listeAAfficher = index.index.get(i).getContenuDocument();
+		return listeAAfficher; 
+	}
+	private String[] setListeInv(IndexInverse indexInv, int i) {
+		String[] listeAAfficher = new String[999999];
+		listeAAfficher = indexInv.indexInv.get(i).getContenuMots();
+
 		return listeAAfficher; 
 	}
 }

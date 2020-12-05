@@ -47,13 +47,19 @@ public class IndexInverse {
 	
 	public String toString() {
 		String texte = "";
-		
 		for(int i = 0; i < indexInv.size(); ++i) {
 			texte += indexInv.get(i).toString() + "\n";
 		}
 		return texte;
 	}
 	
+	public String[] getContenuMots() {
+		String[] texte = new String[indexInv.size()];
+		for(int i = 0; i < indexInv.size() - 1; ++i) {
+			texte[i]  = indexInv.toString();
+		}	
+		return texte;
+	}
 	//on creer une liste donnant le score, en ordre, des documents qui 
 	//contiennent tous les mots dans le tableau en parametre
 	public LinkedList<Score> creerScore(String[] mots) {

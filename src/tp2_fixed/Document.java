@@ -76,10 +76,6 @@ public class Document {
 		return texteLu.split(" ");
 	}
 
-	public String getNomDocument() {
-		return nomDocument;
-	}
-
 	public String toString() {
 		String texte = nomDocument + " : ";
 		
@@ -91,7 +87,7 @@ public class Document {
 	}
 	public String[] getContenuDocument() {
 		String[] texte = new String[listeMot.size()];
-		for(int i = 0; i < listeMot.size() - 1; ++i) {
+		for(int i = 0; i < listeMot.size(); ++i) {
 			texte[i]  = listeMot.get(i).toString();
 		}	
 		return texte;
