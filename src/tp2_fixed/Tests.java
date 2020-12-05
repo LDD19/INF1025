@@ -13,6 +13,12 @@ public class Tests {
 		IndexInverse indexInv = new IndexInverse(index);
 		
 		System.out.println(indexInv.toString());
+		
+		String[] mots = {"with", "to", "the"};//mots qu'on entre sur l'interface
+		
+		ListeScore liste = new ListeScore(indexInv, mots);
+		
+		System.out.println("Scores : \n" + liste.toString());
 	}
 
 }
