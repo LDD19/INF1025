@@ -1,3 +1,5 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
 import java.util.*;
@@ -13,7 +15,6 @@ public class MotInverse {
 		this.mot = motTemp.mot;
 		listeDoc.addFirst(new DocumentInverse(nomDocument, motTemp.frequence));
 	}
-	
 	
 	public String toString() {
 		String texte = mot + " : ";

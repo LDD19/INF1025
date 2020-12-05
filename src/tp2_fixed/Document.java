@@ -1,3 +1,5 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
 import java.io.*;
@@ -85,6 +87,7 @@ public class Document {
 		texte += listeMot.get(listeMot.size() - 1).toString();
 		return texte;
 	}
+	
 	public String[] getContenuDocument() {
 		String[] texte = new String[listeMot.size()];
 		for(int i = 0; i < listeMot.size(); ++i) {

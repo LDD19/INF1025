@@ -1,3 +1,5 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
 import java.util.*;
@@ -60,6 +62,7 @@ public class IndexInverse {
 		}	
 		return texte;
 	}
+	
 	//on creer une liste donnant le score, en ordre, des documents qui 
 	//contiennent tous les mots dans le tableau en parametre
 	public LinkedList<Score> creerScore(String[] mots) {
@@ -83,7 +86,7 @@ public class IndexInverse {
 			}
 		}
 		if(mots.length == 1 || liste.listeScore.isEmpty()) {
-			return liste.listeScore;
+			return liste.trier();
 		}
 		
 		for(int i = 1; i < mots.length; ++i) {//pour chaque mot

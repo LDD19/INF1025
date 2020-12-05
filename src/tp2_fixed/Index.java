@@ -1,9 +1,9 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
 import java.io.*;
 import java.util.*;
-
-
 
 public class Index {
 	

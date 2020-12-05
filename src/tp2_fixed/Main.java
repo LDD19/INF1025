@@ -1,3 +1,5 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
 import java.io.IOException;
@@ -7,6 +9,6 @@ public class Main {
 		
 		Index index = new Index();
 		IndexInverse indexInv = new IndexInverse(index);
-		WindowMain main=new WindowMain(index, indexInv);
+		new WindowMain(index, indexInv);
 	}
 }

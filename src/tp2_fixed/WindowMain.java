@@ -1,23 +1,15 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.LinkedList;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.event.*;
 
 public class WindowMain extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Create the frame.
-	 */
 	public WindowMain(Index index, IndexInverse indexInv) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 263, 80);

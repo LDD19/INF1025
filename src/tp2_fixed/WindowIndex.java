@@ -1,25 +1,15 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.util.LinkedList;
-
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
-import javax.swing.JSplitPane;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.event.*;
 
 public class WindowIndex extends JFrame  {
-	private JList liste, listeIndex;
+	private JList<String> liste, listeIndex;
 	private JSplitPane splitPane1;
 	private JPanel panelListe, panelIndex;
     Container contentPane;
@@ -42,10 +32,10 @@ public class WindowIndex extends JFrame  {
 		//change to 1024x768
 		setBounds(100, 100, 640, 480);
 		
-		liste = new JList(setListeTitres(index)); 
+		liste = new JList<String>(setListeTitres(index)); 
 		panelListe = new JPanel();
 	
-		listeIndex = new JList(indexes);
+		listeIndex = new JList<String>(indexes);
 		panelIndex = new JPanel();
 	
 		

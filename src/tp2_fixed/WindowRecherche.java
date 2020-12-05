@@ -1,18 +1,15 @@
+//Frederic Achard-Groleau 20165049 et Si Da Li 20086868
+
 package tp2_fixed;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import javax.swing.border.*;
 import javax.swing.*;
 
 public class WindowRecherche extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Create the frame.
-	 */
 	public WindowRecherche(IndexInverse indexInv) {
 		super("Recherche");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -20,7 +17,7 @@ public class WindowRecherche extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
 		
-		JTextField input = new JTextField();
+		JTextField input = new JTextField("Mots a rechercher");
 		input.setMaximumSize(new Dimension(250,10));
 		input.setHorizontalAlignment(JTextField.CENTER);
 		input.setAlignmentX(JTextField.CENTER_ALIGNMENT);
@@ -43,9 +40,5 @@ public class WindowRecherche extends JFrame {
 		contentPane.add(bouton);
 		contentPane.add(surface);
 		this.add(contentPane);
-	
 	}
-	
-	
-
 }
