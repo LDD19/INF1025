@@ -26,10 +26,10 @@ public class WindowIndex extends JFrame  {
 	
 	LinkedList<Document> nomDocument; 
 	LinkedList<Document> indexInv;
-	String[] indexes = {"hi", "hi2", "liste vide"}; 
+	String[] indexes = {"Veuillez faire une selection", ""}; 
 	private JPanel panelBtn;
 	private JButton btnInverserIndex;
-	/** nomDocument.get(1).getNomDocument().toString()
+	/**
 	 * Launch the application.
 	 */
 
