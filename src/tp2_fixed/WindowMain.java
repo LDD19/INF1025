@@ -16,10 +16,6 @@ public class WindowMain extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-
-	/**
 	 * Create the frame.
 	 */
 	public WindowMain(Index index, IndexInverse indexInv) {
@@ -43,7 +39,8 @@ public class WindowMain extends JFrame {
 		JButton btnSearch = new JButton("Recherche");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new WindowRecherche().setVisible(true);
+				WindowRecherche recherche = new WindowRecherche(indexInv);
+				recherche.setVisible(true);
 			}
 		});
 		btnSearch.setBounds(129, 10, 109, 20);

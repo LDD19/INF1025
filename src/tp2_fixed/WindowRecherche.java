@@ -1,48 +1,51 @@
 package tp2_fixed;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.border.*;
+import javax.swing.*;
 
 public class WindowRecherche extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WindowRecherche frame = new WindowRecherche();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public WindowRecherche() {
+	public WindowRecherche(IndexInverse indexInv) {
+		super("Recherche");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		//change to 1024x768
-		setBounds(100, 100, 640, 480);
+		setSize(500,500);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
 		
-		JTextPane txtpnRechercheplaceholder = new JTextPane();
-		txtpnRechercheplaceholder.setText("recherche (placeholder)");
-		contentPane.add(txtpnRechercheplaceholder, BorderLayout.CENTER);
+		JTextField input = new JTextField();
+		input.setMaximumSize(new Dimension(250,10));
+		input.setHorizontalAlignment(JTextField.CENTER);
+		input.setAlignmentX(JTextField.CENTER_ALIGNMENT);
+		
+		JButton bouton = new JButton("Rechercher");
+		bouton.setAlignmentX(JButton.CENTER_ALIGNMENT);
+		
+		JTextPane surface = new JTextPane();
+		
+		
+		bouton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] mots = input.getText().split(" ");
+				ListeScore scores = new ListeScore(indexInv, mots);
+				surface.setText(scores.toString());
+			}
+		});
+	
+		contentPane.add(input);
+		contentPane.add(bouton);
+		contentPane.add(surface);
+		this.add(contentPane);
+	
 	}
+	
+	
 
 }
