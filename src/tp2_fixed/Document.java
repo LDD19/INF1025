@@ -89,13 +89,11 @@ public class Document {
 		texte += listeMot.get(listeMot.size() - 1).toString();
 		return texte;
 	}
-	public String getContenuDocument(int index) {
+	public String[] getContenuDocument() {
 		String[] texte = new String[listeMot.size()];
 		for(int i = 0; i < listeMot.size() - 1; ++i) {
-			texte[i]  = listeMot.toString();
+			texte[i]  = listeMot.get(i).toString();
 		}	
-		//texte += listeMot.get(listeMot.size() - 1).toString();
-		System.out.println(texte[index]);
-		return texte[index];
+		return texte;
 	}
 }

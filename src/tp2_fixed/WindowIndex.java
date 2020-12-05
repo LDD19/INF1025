@@ -68,9 +68,7 @@ public class WindowIndex extends JFrame  {
 	}
 	private String[] setListe(Index index, int i) {
 		String[] listeAAfficher = new String[999999];
-			listeAAfficher[i] = index.index.get(i).getContenuDocument(i);
-		//listeAAfficher[i] =  Integer.toString(i);
-			//System.out.println(listeAAfficher[i] + i);
+			listeAAfficher = index.index.get(i).getContenuDocument();
 		return listeAAfficher; 
 	}
 }
