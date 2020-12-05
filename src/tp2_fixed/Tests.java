@@ -19,6 +19,9 @@ public class Tests {
 		ListeScore liste = new ListeScore(indexInv, mots);
 		
 		System.out.println("Scores : \n" + liste.toString());
+
+		index.index.get(0).getContenuDocument(0).toString();
+		
 	}
 
 }

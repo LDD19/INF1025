@@ -48,7 +48,7 @@ public class WindowIndex extends JFrame  {
 		
 		liste.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
-				listeIndex.setListData((setListe(index)));
+				listeIndex.setListData((setListe(index, liste.getSelectedIndex())));
 			}
 		});
 		
@@ -66,12 +66,11 @@ public class WindowIndex extends JFrame  {
 		}
 		return listeAAfficher; 
 	}
-	private String[] setListe(Index index) {
-		String[] listeAAfficher = new String[index.index.size()];
-		for (int i = 0 ;i < index.index.size(); i++) {
-			listeAAfficher[i] = index.index.get(i).toString();
+	private String[] setListe(Index index, int i) {
+		String[] listeAAfficher = new String[999999];
+			listeAAfficher[i] = index.index.get(i).getContenuDocument(i);
+		//listeAAfficher[i] =  Integer.toString(i);
 			//System.out.println(listeAAfficher[i] + i);
-		}
 		return listeAAfficher; 
 	}
 }
