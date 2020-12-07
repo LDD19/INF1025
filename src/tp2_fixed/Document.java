@@ -73,7 +73,7 @@ public class Document {
 		
 		reader.close();
 		
-		texteLu = texteLu.replaceAll("[^A-z0-9]", " ");//garder seulement les caracteres qu'on veut
+		texteLu = texteLu.replaceAll("[^\\w]+\\.|\\,|\\(|\\)|\\/", " ");//garder seulement les caracteres qu'on veut
 		
 		return texteLu.split(" ");
 	}
