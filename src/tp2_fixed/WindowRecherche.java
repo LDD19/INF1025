@@ -13,11 +13,12 @@ public class WindowRecherche extends JFrame {
 	public WindowRecherche(IndexInverse indexInv) {
 		super("Recherche");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(500,500);
+		setSize(1024, 768);
 		contentPane = new JPanel();
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
 		
 		JTextField input = new JTextField("Mots a rechercher");
+	
 		input.setMaximumSize(new Dimension(250,10));
 		input.setHorizontalAlignment(JTextField.CENTER);
 		input.setAlignmentX(JTextField.CENTER_ALIGNMENT);
@@ -26,8 +27,16 @@ public class WindowRecherche extends JFrame {
 		bouton.setAlignmentX(JButton.CENTER_ALIGNMENT);
 		
 		JTextPane surface = new JTextPane();
-		
-		
+		//rechercher avec Enter
+		input.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					bouton.doClick();
+		        }
+			}
+		});
+		//bouton de recherche
 		bouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String[] mots = input.getText().split(" ");
@@ -39,6 +48,6 @@ public class WindowRecherche extends JFrame {
 		contentPane.add(input);
 		contentPane.add(bouton);
 		contentPane.add(surface);
-		this.add(contentPane);
+		getContentPane().add(contentPane);
 	}
 }

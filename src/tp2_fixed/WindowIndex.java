@@ -29,8 +29,7 @@ public class WindowIndex extends JFrame  {
 	public WindowIndex(Index index, IndexInverse indexInv) {
 		super("Indexation (admins seulement)");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		//change to 1024x768
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 1024, 768);
 		
 		liste = new JList<String>(setListeTitres(index)); 
 		panelListe = new JPanel();
@@ -38,7 +37,7 @@ public class WindowIndex extends JFrame  {
 		listeIndex = new JList<String>(indexes);
 		panelIndex = new JPanel();
 	
-		
+		//comportement lorsqu'on selectionne un element dans la liste
 		liste.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if(btnInverserIndex.getText() == "Inverser Index")
@@ -51,8 +50,7 @@ public class WindowIndex extends JFrame  {
 		});
 		
 		splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,false,new JScrollPane(panelListe),new JScrollPane(panelIndex));
-        splitPane1.setDividerSize(10);
-        splitPane1.setOneTouchExpandable(true);
+		splitPane1.setResizeWeight(0.3);
         contentPane = getContentPane();
         contentPane.add(splitPane1);
         
@@ -60,7 +58,7 @@ public class WindowIndex extends JFrame  {
         getContentPane().add(panelBtn, BorderLayout.SOUTH);
         
         btnInverserIndex = new JButton("Inverser Index");
-    
+        	//comportement des boutons qui affichent une liste inversee
         	 btnInverserIndex.addActionListener(new ActionListener() {
  	        	public void actionPerformed(ActionEvent e) {
  	        	    if(btnInverserIndex.getText() == "Inverser Index") {
@@ -85,6 +83,7 @@ public class WindowIndex extends JFrame  {
     	panelListe.add(liste);
 		
 	}
+	//methode qui retourne une liste de documents  
 	private String[] setListeTitres(Index index){
 		String[] listeAAfficher = new String[index.index.size()];
 		for (int i = 0 ;i < index.index.size(); i++) {
@@ -92,6 +91,7 @@ public class WindowIndex extends JFrame  {
 		}
 		return listeAAfficher; 
 	}
+	//methode qui retourne une liste de mots
 	private String[] setListeTitresInv(IndexInverse indexInv) {
 		String[] listeAAfficher = new String[indexInv.indexInv.size()];
 		for (int i = 0 ;i < indexInv.indexInv.size(); i++) {
@@ -99,11 +99,13 @@ public class WindowIndex extends JFrame  {
 		}
 		return listeAAfficher;
 	}
+	//methode qui retourne une liste de mots indexe pour les documents 
 	private String[] setListe(Index index, int i) {
 		String[] listeAAfficher = new String[999999];
 			listeAAfficher = index.index.get(i).getContenuDocument();
 		return listeAAfficher; 
 	}
+	//methode qui retourne une liste de documents indexes pour les mots
 	private String[] setListeInv(IndexInverse indexInv, int i) {
 		String[] listeAAfficher = new String[999999];
 		listeAAfficher = indexInv.indexInv.get(i).getContenuMots();

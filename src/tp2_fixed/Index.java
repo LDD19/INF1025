@@ -15,7 +15,7 @@ public class Index {
 	}
 	
 	public void creerIndex() throws IOException {
-		File dossier = new File("src/tp2_fixed/textes");//dossier ou sont tous les textes
+		File dossier = new File(System.getProperty("user.dir") + "/textes");//dossier ou sont tous les textes
 		File[] listeTextes = dossier.listFiles();//tableau contenant tous les fichiers
 		
 		for(int i = 0; i < listeTextes.length; ++i) {

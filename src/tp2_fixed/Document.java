@@ -77,7 +77,7 @@ public class Document {
 		
 		return texteLu.split(" ");
 	}
-
+	//methode qui retourne le nom du document + indexage
 	public String toString() {
 		String texte = nomDocument + " : ";
 		
@@ -87,7 +87,7 @@ public class Document {
 		texte += listeMot.get(listeMot.size() - 1).toString();
 		return texte;
 	}
-	
+	//methode qui retourne le contenu du document, sans le nom du document
 	public String[] getContenuDocument() {
 		String[] texte = new String[listeMot.size()];
 		for(int i = 0; i < listeMot.size(); ++i) {

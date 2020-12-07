@@ -25,6 +25,7 @@ public class MotInverse {
 		texte += listeDoc.get(listeDoc.size() - 1).toString();
 		return texte;
 	}
+	//methode qui retourne une liste de documents indexes
 	public String[] getContenuMots() {
 		String[] texte = new String[listeDoc.size()];
 		for(int i = 0; i < listeDoc.size(); ++i) {
